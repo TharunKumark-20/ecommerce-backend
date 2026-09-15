@@ -31,8 +31,7 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Value("${frontend.url:http://localhost:5173}")
-    private String frontendUrl;
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -82,10 +81,9 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173",
-                        frontendUrl
+                        "https://ecommerce-frontend-lake-mu.vercel.app"
                 )
         );
-
         configuration.setAllowedMethods(
                 List.of(
                         "GET",
